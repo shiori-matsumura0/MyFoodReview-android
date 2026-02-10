@@ -17,8 +17,8 @@
 - 共通処理をまとめたクラスの作成（ImageManager、PhotoContoroller、ImageStrageUtil）
 
 ## 使用技術
-- Java
 - Android Studio
+- Java
 - SQLite
 - RecyclerView
 - Glide
