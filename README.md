@@ -37,5 +37,16 @@
 - 削除処理は確認ダイアログを表示し、
   誤操作を防ぐUIにした
 
+
   ## スクリーンショット
+ <img width="30%" height="2400" alt="Screenshot_1770875497" src="https://github.com/user-attachments/assets/8fea168f-ad81-4586-a717-cdb008b86dbf" />　<img width="30%" height="2400" alt="Screenshot_1770875607" src="https://github.com/user-attachments/assets/8d7858e7-6508-4ac0-99e3-1f90801bb4f0" />　<img width="30%" height="2400" alt="Screenshot_1770875732" src="https://github.com/user-attachments/assets/6c16c98b-7c8d-44f3-9d20-7d3fb631f6cd" />
+ 
+ <img width="30%" height="2400" alt="Screenshot_1770875752" src="https://github.com/user-attachments/assets/bbcba548-9e88-48b0-b226-e9f20922d795" />　<img width="30%" height="2400" alt="Screenshot_1770875674" src="https://github.com/user-attachments/assets/750a16cc-579e-43bc-9a07-64a651c64986" />　<img width="30%" height="2400" alt="Screenshot_1770875678" src="https://github.com/user-attachments/assets/a81f0d2a-aa4a-4a45-b88f-9a64b76cc908" />
+
   
+
+
+
+
+
+
