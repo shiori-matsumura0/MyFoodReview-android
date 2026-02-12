@@ -43,6 +43,15 @@
  
  <img width="30%" height="2400" alt="Screenshot_1770875752" src="https://github.com/user-attachments/assets/bbcba548-9e88-48b0-b226-e9f20922d795" />　<img width="30%" height="2400" alt="Screenshot_1770875674" src="https://github.com/user-attachments/assets/750a16cc-579e-43bc-9a07-64a651c64986" />　<img width="30%" height="2400" alt="Screenshot_1770875678" src="https://github.com/user-attachments/assets/a81f0d2a-aa4a-4a45-b88f-9a64b76cc908" />
 
+
+ ## GIF
+ 
+
+https://github.com/user-attachments/assets/35f31592-629c-4946-8319-bce35abc3b0c
+
+
+
+
   
 
 
