@@ -41,7 +41,6 @@ public class ResultActivity extends AppCompatActivity {
 
     private String currentSort = "created_desc"; // デフォルト：作成日新しい順
 
-    // ===== 検索条件を保持する変数群 =====
     private String keyword = "";
     private String prefecture = "";
     private String area = "";
@@ -52,7 +51,6 @@ public class ResultActivity extends AppCompatActivity {
     private boolean favorite = false;
     private RecyclerView rvResult;
 
-    // 検索条件表示バーのUIコンポーネント
     private ConstraintLayout layoutSearchCondition;
     private TextView tvDebug;
     private ImageView ivResultCancel;
