@@ -41,7 +41,7 @@ public class ResultActivity extends AppCompatActivity {
 
     private String currentSort = "created_desc"; // デフォルト：作成日新しい順
 
-    // 検索条件を保持する変数群
+    // ===== 検索条件を保持する変数群 =====
     private String keyword = "";
     private String prefecture = "";
     private String area = "";
@@ -73,12 +73,12 @@ public class ResultActivity extends AppCompatActivity {
 
         setTitle("検索結果");
 
-        // アクションバーの戻るボタン有効化
+        // ===== アクションバーの戻るボタン有効化 =====
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        // 前画面（検索ダイアログやメイン画面）から渡された条件を取得
+        // ===== 前画面（検索ダイアログやメイン画面）から渡された条件を取得 =====
         Bundle bundle = getIntent().getExtras();
 
         if (bundle != null) {
@@ -178,6 +178,102 @@ public class ResultActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadResultList();
+    }
+
+    // ===== オプションメニューを設置 =====
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_options_result, menu);
+        return true;
+    }
+
+    // ===== オプションメニューの設定 =====
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+
+        // 検索ボタン
+        if (itemId == R.id.menu_result_search) {
+            showSearchDialog();
+            return true;
+        }
+
+        // ソートボタン
+        if (itemId == R.id.menu_result_sort) {
+            View anchor = findViewById(R.id.menu_result_sort);
+            PopupMenu popup = new PopupMenu(this, anchor, Gravity.END);
+
+            popup.getMenu().add("訪問日（新しい順）");
+            popup.getMenu().add("訪問日（古い順）");
+            popup.getMenu().add("作成日（新しい順）");
+            popup.getMenu().add("作成日（古い順）");
+
+            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem menuItem) {
+                    String title = menuItem.getTitle().toString();
+                    switch (title) {
+                        case "訪問日（新しい順）":
+                            currentSort = "visited_desc";
+                            break;
+                        case "訪問日（古い順）":
+                            currentSort = "visited_asc";
+                            break;
+                        case "作成日（新しい順）":
+                            currentSort = "created_desc";
+                            break;
+                        case "作成日（古い順）":
+                            currentSort = "created_asc";
+                            break;
+                    }
+
+                    loadResultList(); // 再読み込み
+                    return true;
+                }
+            });
+
+            popup.show();
+            return true;
+        }
+
+        // 戻るボタン
+        if (itemId == android.R.id.home) {
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    // ===== 検索画面の設定 =====
+    private void showSearchDialog() {
+        SearchDialogFragment dialogFragment = new SearchDialogFragment();
+        dialogFragment.show(getSupportFragmentManager(), "SearchDialogFragment");
+    }
+
+    // ===== 検索条件クリアの設定 =====
+    private class ClearButtonClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+
+            // 検索条件のクリア
+            keyword = "";
+            prefecture = "";
+            area = "";
+            genre = "";
+            rating = 0;
+            visited = false;
+            want = false;
+            favorite = false;
+
+            // 検索条件バーを非表示
+            layoutSearchCondition.setVisibility(View.GONE);
+            tvDebug.setText("");
+
+            // RecyclerView を全件表示に戻す
+            loadResultList();
+        }
     }
 
     // 20260206山本変更:データベースが空文字だった場合に検索結果画面で「その他エリア」が表示されない問題に対応
@@ -418,113 +514,6 @@ public class ResultActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
             return list.size();
-        }
-    }
-
-    // ===== オプションメニューを設置 =====
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_options_result, menu);
-        return true;
-    }
-
-    // ===== オプションメニューの設定 =====
-    /**
-     * メニュー項目の選択イベントを処理します。
-     * 検索ダイアログの再表示やソートポップアップの表示を行います。
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-
-        // 検索ボタン
-        if (itemId == R.id.menu_result_search) {
-            showSearchDialog();
-            return true;
-        }
-
-        // ソートボタン
-        if (itemId == R.id.menu_result_sort) {
-            View anchor = findViewById(R.id.menu_result_sort);
-            PopupMenu popup = new PopupMenu(this, anchor, Gravity.END);
-
-            popup.getMenu().add("訪問日（新しい順）");
-            popup.getMenu().add("訪問日（古い順）");
-            popup.getMenu().add("作成日（新しい順）");
-            popup.getMenu().add("作成日（古い順）");
-
-            popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem menuItem) {
-                    String title = menuItem.getTitle().toString();
-                    switch (title) {
-                        case "訪問日（新しい順）":
-                            currentSort = "visited_desc";
-                            break;
-                        case "訪問日（古い順）":
-                            currentSort = "visited_asc";
-                            break;
-                        case "作成日（新しい順）":
-                            currentSort = "created_desc";
-                            break;
-                        case "作成日（古い順）":
-                            currentSort = "created_asc";
-                            break;
-                    }
-
-                    loadResultList(); // 再読み込み
-                    return true;
-                }
-            });
-
-            popup.show();
-            return true;
-        }
-
-        // 戻るボタン
-        if (itemId == android.R.id.home) {
-            finish();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    // ===== 検索画面の設定 =====
-    /**
-     * 検索条件入力用のダイアログを表示します。
-     */
-    private void showSearchDialog() {
-        SearchDialogFragment dialogFragment = new SearchDialogFragment();
-        dialogFragment.show(getSupportFragmentManager(), "SearchDialogFragment");
-    }
-
-    // ===== 検索条件クリアの設定 =====
-    /**
-     * 検索条件表示バーの×ボタン押下時の処理。
-     * 条件をリセットし、全件表示に戻します。
-     */
-    private class ClearButtonClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-
-            // 検索条件のクリア
-            keyword = "";
-            prefecture = "";
-            area = "";
-            genre = "";
-            rating = 0;
-            visited = false;
-            want = false;
-            favorite = false;
-
-            // 検索条件バーを非表示
-            layoutSearchCondition.setVisibility(View.GONE);
-            tvDebug.setText("");
-
-            // RecyclerView を全件表示に戻す
-            loadResultList();
         }
     }
 
