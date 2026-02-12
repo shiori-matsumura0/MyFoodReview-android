@@ -35,6 +35,11 @@ public class ImageManager {
         this.subImageViews = subImageViews;
     }
 
+    // ===== 画像パスリストの取得 =====
+    public ArrayList<String> getPhotoPathList() {
+        return photoPathList;
+    }
+
     // ===== カメラの起動 =====
     public void startCamera() {
         if (photoPathList.size() >= 5) {
@@ -80,7 +85,7 @@ public class ImageManager {
         );
     }
 
-    // =====  =====
+    // ===== カメラorギャラリーからの結果の受け取り =====
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (resultCode != Activity.RESULT_OK) return;
@@ -122,28 +127,31 @@ public class ImageManager {
 
     // ===== 表示の更新 =====
     private void updatePhotoViews() {
-
+        // メイン画像の表示
         if (!photoPathList.isEmpty()) {
-            mainImageView.setImageURI(
-                    Uri.fromFile(new File(photoPathList.get(0)))
-            );
+            Glide.with(activity)
+                    .load(new File(photoPathList.get(0)))
+                    .centerCrop() // 中央で切り抜き（ImageViewのサイズに合わせる）
+                    .into(mainImageView);
+        } else {
+            // 画像がない場合はnoimageを表示
+            mainImageView.setImageResource(R.drawable.noimage);
         }
 
+        // サブ画像の表示
         for (int i = 0; i < subImageViews.length; i++) {
             if (photoPathList.size() > i + 1) {
-                subImageViews[i].setImageURI(
-                        Uri.fromFile(new File(photoPathList.get(i + 1)))
-                );
+                Glide.with(activity)
+                        .load(new File(photoPathList.get(i + 1)))
+                        .centerCrop()
+                        .placeholder(R.drawable.noimage) // 読み込み中の画像
+                        .into(subImageViews[i]);
             } else {
-                subImageViews[i].setImageResource(R.drawable.noimage);
+                Glide.with(activity)
+                        .load(R.drawable.noimage)
+                        .into(subImageViews[i]);
             }
         }
     }
-
-    // =====  =====
-    public ArrayList<String> getPhotoPathList() {
-        return photoPathList;
-    }
-
-
 }
+
