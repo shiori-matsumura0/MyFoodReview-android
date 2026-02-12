@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/PhotoRound8" />
+
+    <ImageView
+        android:id="@+id/ivResultFavorite"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="6dp"
+        android:visibility="gone"
+        app:tint="@color/favorite_red_light"
+        android:elevation="3dp"
+        app:srcCompat="@drawable/ic_baseline_favorite_24" />
+
+</FrameLayout>

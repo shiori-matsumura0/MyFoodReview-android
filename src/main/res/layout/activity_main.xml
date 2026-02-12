@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige_bg">
+
+    <!--    <RelativeLayout-->
+    <!--        android:id="@+id/main_titleBar"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="56dp"-->
+    <!--        android:background="#A2C4E9"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerVertical="true"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:text="タイトル"-->
+    <!--            android:textColor="#000000"-->
+    <!--            android:textSize="18sp"-->
+    <!--            android:textStyle="bold" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/ivMainSearch"-->
+    <!--            android:layout_width="32dp"-->
+    <!--            android:layout_height="32dp"-->
+    <!--            android:layout_alignParentEnd="true"-->
+    <!--            android:layout_centerVertical="true"-->
+    <!--            android:layout_marginEnd="16dp"-->
+    <!--            android:src="@drawable/ic_baseline_search_24" />-->
+
+    <!--    </RelativeLayout>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_verticalRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 右下：追加（スクエア角丸） -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/main_fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="22dp"
+        android:src="@drawable/ic_add_24"
+        app:fabCustomSize="74dp"
+        app:maxImageSize="36dp"
+        app:shapeAppearanceOverlay="@style/FabRoundedSquare"
+        app:backgroundTint="@color/honey_yellow"
+        app:tint="@color/brown_dark"
+        app:elevation="6dp"
+        app:pressedTranslationZ="10dp"
+        app:rippleColor="@color/honey_ripple"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <!-- 左下：モード切替 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_btnSwitchMode"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        android:text="地域"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/brown_dark"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/beige_light"
+        app:cornerRadius="45dp"
+        app:rippleColor="@color/brown_ripple"
+        app:icon="@drawable/ic_switch"
+        app:iconGravity="textTop"
+        app:iconPadding="2dp"
+        app:iconSize="40dp"
+        app:iconTint="@color/brown_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/brown_light"
+        app:strokeWidth="1dp" />
+
+    <LinearLayout
+        android:id="@+id/main_llSelectionBar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/brown_dark"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:elevation="12dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/main_btnSelectionFavorite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="お気に入り"
+            android:textColor="@color/white"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:id="@+id/main_btnSelectionDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="削除"
+            android:textColor="#FF6B6B"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <Button
+            android:id="@+id/main_btnSelectionCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="戻る"
+            android:textColor="@color/white"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

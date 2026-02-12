@@ -1,0 +1,43 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.MyFoodReview0202"
+        parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/brown_dark</item>
+
+        <!-- ActionBar 背景色 -->
+        <item name="colorPrimary">@color/brown_dark</item>
+        <item name="colorPrimaryVariant">@color/brown_dark</item>
+
+        <!-- ActionBar 上の文字・アイコン色（menu含む） -->
+        <item name="colorOnPrimary">@color/brown_dark</item>
+
+        <!-- リンク文字色 -->
+        <item name="android:textColorLink">@color/brown_dark</item>
+
+        <!-- 押下時ハイライト無効 -->
+        <item name="android:textColorHighlight">@android:color/transparent</item>
+
+        <item name="android:windowBackground">@color/icon_back</item>
+
+
+    </style>
+
+    <style name="Theme.MyFoodReview0202.SplashOS"
+        parent="Theme.SplashScreen">
+
+        <!-- OSが最初に出すスプラッシュの背景色 -->
+        <item name="windowSplashScreenBackground">@color/brown_dark</item>
+
+        <!-- OSが最初に出す中央アイコン（ロゴにする） -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+
+        <!-- 次に表示するテーマ（＝SplashActivityの見た目） -->
+        <item name="postSplashScreenTheme">@style/Theme.MyFoodReview0202</item>
+
+    </style>
+
+
+</resources>
+

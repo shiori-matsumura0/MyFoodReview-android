@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ベース -->
+    <color name="bg_ivory">#FFF8F0</color>
+
+    <!-- オレンジ系 -->
+    <color name="dusty_orange_dark">#C97E2E</color>
+
+    <!-- イエロー系 -->
+    <color name="honey_yellow">#F6D27A</color>
+    <color name="honey_yellow_soft">#CCFFE08A</color>
+
+    <!-- ブラウン系 -->
+    <color name="brown_dark">#5C4033</color>
+    <color name="brown_light">#A58B76</color>
+    <color name="beige_light">#FAF3E1</color>
+
+    <!-- テキスト -->
+    <color name="text_main">#3E3A39</color>
+    <color name="text_sub">#8A7F78</color>
+
+    <!-- アクセント -->
+    <color name="accent_warm">#D6A65A</color>
+
+    <!-- カード背景 -->
+    <color name="card_white">#FFFFFF</color>
+
+    <color name="bg_warm">#F7F3EE</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_primary">#2B2B2B</color>
+    <color name="text_secondary">#7A7A7A</color>
+
+    <color name="accent">#2E6F6B</color>      <!-- くすみティール -->
+    <color name="outline">#E6DED6</color>     <!-- 薄い枠線 -->
+    <color name="chip_bg">#F1ECE6</color>
+
+    <color name="card_base">#FFF8EF</color>
+    <color name="brown_main">#5A3E2B</color>
+    <color name="brown_sub">#8B6B55</color>
+    <color name="line_cream">#F0DFC6</color>
+    <color name="placeholder">#F3EBDD</color>
+    <color name="caramel">#D9A441</color>
+
+    <!-- アイコン背景 -->
+    <color name="icon_back">#6A442F</color>
+
+    <!-- メイン画面 -->
+    <color name="beige_bg">#FAF4EB</color>
+    <color name="brown_stroke_soft">#22A58B76</color>
+    <color name="brown_ripple">#1A6F4E37</color>
+    <color name="honey_ripple">#33F5C26B</color>
+
+    <color name="card_base_soft">#F1E6D8</color>
+
+    <color name="line_highlight">#66FFFFFF</color>
+    <color name="line_shadow">#1A6F4E37</color>
+
+    <color name="brown_black_soft">#2B1F1A</color>
+    <color name="brown_black_warm">#3A2A24</color>
+    <color name="brown_black_deep">#1F1A17</color>
+    <color name="gray_light_soft">#9E9E9E</color>
+    <color name="gray_light">#B0B0B0</color>
+    <color name="gray_medium_soft">#8A8A8A</color>
+
+
+    // お気に入りの色どれも微妙かも
+    //　今のところ設定はitem_resultのみ
+    <color name="favorite_red">#C65A4A</color>
+    <color name="favorite_red_soft">#A64B3C</color>
+    <color name="favorite_red_light">#D96A5F</color>
+
+
+    <!-- 王道・バランス型 -->
+    <color name="heart_red_main">#F44336</color>
+
+    <!-- 少し濃いめ -->
+    <color name="heart_red_dark">#E53935</color>
+
+    <!-- 明るめ・ポップ -->
+    <color name="heart_red_light">#FF5252</color>
+
+    <!-- ちょいピンク寄り -->
+    <color name="heart_red_pink">#EC407A</color>
+
+    <!-- ワインレッド寄り -->
+    <color name="heart_red_wine">#C62828</color>
+
+    <!-- 行きたい -->
+    <color name="aqua_blue">#99CCFF</color>
+    <!-- かなり薄め・ほぼ白寄り -->
+    <color name="aqua_blue_xlight">#EAF4FF</color>
+    <!-- 薄め・やさしい -->
+    <color name="aqua_blue_light">#D6EBFF</color>
+    <!-- 少しだけ薄め -->
+    <color name="aqua_blue_soft">#BBDFFF</color>
+
+</resources>

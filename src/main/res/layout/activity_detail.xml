@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_food_beige_pattern"
+    tools:context=".DetailActivity">
+
+    <TextView
+        android:id="@+id/tvDetailShopName"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="2"
+        android:text="ShopName"
+        android:textColor="@color/brown_dark"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="25sp"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llGenreDateRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="end"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailShopName">
+
+        <!-- ジャンル -->
+        <TextView
+            android:id="@+id/tvDetailGenreTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ジャンル："
+            android:textColor="@color/brown_light"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvDetailGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="ラーメン"
+            android:textColor="@color/text_main"
+            android:textSize="12sp" />
+
+        <!-- 訪問日 -->
+        <TextView
+            android:id="@+id/tvDetailVisitedDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="訪問日："
+            android:textColor="@color/brown_light"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvDetailVisitedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2026/02/05"
+            android:textColor="@color/text_main"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardDetailImage"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        app:cardBackgroundColor="@color/card_white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llGenreDateRow">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vpDetailPhotos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tlDetailIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                app:tabBackground="@drawable/selector_dot"
+                app:tabGravity="center"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="0dp"
+                app:tabPaddingStart="10dp"
+                app:tabPaddingEnd="10dp"
+                app:tabMinWidth="0dp"
+                app:tabMode="fixed" />
+
+            <!-- 状態チップ（行った / 行ってみたい をJava側で切り替え） -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVisitStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="12dp"
+                android:text="行ってみたい"
+                android:textAppearance="@style/ChipTextBold"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/aqua_blue"
+                app:chipCornerRadius="999dp"
+                app:chipMinHeight="35dp"
+                app:chipStrokeColor="@color/white"
+                app:chipStrokeWidth="3dp"
+                app:ensureMinTouchTargetSize="false" />
+        </FrameLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tvDetailPrefectureTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="都道府県："
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardDetailImage" />
+
+    <TextView
+        android:id="@+id/tvDetailPrefecture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="〇〇県"
+        android:textColor="@color/brown_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailPrefectureTitle"
+        app:layout_constraintTop_toBottomOf="@+id/cardDetailImage" />
+
+    <TextView
+        android:id="@+id/tvDetailAreaTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="エリア："
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailPrefecture"
+        app:layout_constraintTop_toBottomOf="@+id/cardDetailImage" />
+
+    <TextView
+        android:id="@+id/tvDetailArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="○○市"
+        android:textColor="@color/brown_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailAreaTitle"
+        app:layout_constraintTop_toBottomOf="@+id/cardDetailImage" />
+
+    <TextView
+        android:id="@+id/tvDetailRatingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="評価："
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailPrefectureTitle" />
+
+    <LinearLayout
+        android:id="@+id/llDetailRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailRatingTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailPrefectureTitle">
+
+        <ImageView
+            android:id="@+id/ivDetailStar1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_baseline_star_border_24"
+            app:tint="@color/accent_warm" />  <!-- 白い星 -->
+
+        <ImageView
+            android:id="@+id/ivDetailStar2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_baseline_star_border_24"
+            app:tint="@color/accent_warm" />
+
+        <ImageView
+            android:id="@+id/ivDetailStar3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_baseline_star_border_24"
+            app:tint="@color/accent_warm" />
+
+        <ImageView
+            android:id="@+id/ivDetailStar4"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_baseline_star_border_24"
+            app:tint="@color/accent_warm" />
+
+        <ImageView
+            android:id="@+id/ivDetailStar5"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_baseline_star_border_24"
+            app:tint="@color/accent_warm" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDetailUrlTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="URL："
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailRatingTitle" />
+
+    <TextView
+        android:id="@+id/tvDetailMemoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="メモ"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailUrlTitle" />
+
+    <TextView
+        android:id="@+id/tvDetailUrl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:autoLink="web"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="xxxxx://xxxxxxxxxxxxx.xxx.xx.xx"
+        android:textColor="@color/brown_dark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailUrlTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailRatingTitle" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/memoScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_memo_round"
+        android:minHeight="120dp"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailMemoTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tvDetailMemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="おいしかった"
+            android:textColor="@color/text_main"
+            android:textSize="14sp" />
+    </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="339dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@android:color/transparent">
+
+
+    <!-- 角丸カード（ダイアログの“中身”） -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp">
+
+            <!-- タイトル（追加：ID不要なら消してOK） -->
+            <TextView
+                android:id="@+id/tvDialogTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="絞り込み検索"
+                android:textColor="#2B2B2B"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#5C4033"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDialogTitle" />
+
+            <!-- ===== キーワード ===== -->
+            <TextView
+                android:id="@+id/tvSearchKeywordTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="キーワード"
+                android:textColor="#2B2B2B"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <EditText
+                android:id="@+id/etSearchKeyword"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_outline"
+                android:hint="店名 / メモ / 料理名 など"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="#2B2B2B"
+                android:textColorHint="#9A9A9A"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSearchKeywordTitle" />
+
+            <!-- ===== 都道府県 & エリア（2カラム） ===== -->
+            <TextView
+                android:id="@+id/tvSearchPrefectureTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="都道府県"
+                android:textColor="#2B2B2B"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etSearchKeyword" />
+
+            <TextView
+                android:id="@+id/tvSearchAreaTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="エリア"
+                android:textColor="#2B2B2B"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/guidelineMid"
+                app:layout_constraintTop_toTopOf="@id/tvSearchPrefectureTitle" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineMid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.52" />
+
+            <Spinner
+                android:id="@+id/spSearchPrefecture"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_input_outline"
+                android:entries="@array/search_prefecture_list"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineMid"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSearchPrefectureTitle" />
+
+            <EditText
+                android:id="@+id/etSearchArea"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_outline"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="#2B2B2B"
+                android:textColorHint="#9A9A9A"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/guidelineMid"
+                app:layout_constraintTop_toBottomOf="@id/tvSearchPrefectureTitle" />
+
+            <!-- ===== ジャンル ===== -->
+            <TextView
+                android:id="@+id/tvSearchGenreTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="ジャンル"
+                android:textColor="#2B2B2B"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spSearchPrefecture" />
+
+            <Spinner
+                android:id="@+id/spSearchGenre"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input_outline"
+                android:entries="@array/search_genre_list"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSearchGenreTitle" />
+
+            <!-- ===== 評価 ===== -->
+            <TextView
+                android:id="@+id/tvSearchRatingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="評価"
+                android:textColor="#2B2B2B"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spSearchGenre" />
+
+            <!--            <Spinner-->
+            <!--                android:id="@+id/spSearchRating"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="44dp"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:background="@drawable/bg_input_outline"-->
+            <!--                android:entries="@array/search_rating_list"-->
+            <!--                android:paddingStart="12dp"-->
+            <!--                android:paddingEnd="12dp"-->
+            <!--                app:layout_constraintEnd_toStartOf="@id/tvSearchRatingUnit"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/tvSearchRatingTitle" />-->
+
+            <LinearLayout
+                android:id="@+id/llSearchRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSearchRatingTitle">
+
+                <ImageView
+                    android:id="@+id/ivSearchStar1"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_baseline_star_border_24"
+                    app:tint="@color/accent_warm" />  <!-- 白い星 -->
+
+                <ImageView
+                    android:id="@+id/ivSearchStar2"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_baseline_star_border_24"
+                    app:tint="@color/accent_warm" />
+
+                <ImageView
+                    android:id="@+id/ivSearchStar3"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_baseline_star_border_24"
+                    app:tint="@color/accent_warm" />
+
+                <ImageView
+                    android:id="@+id/ivSearchStar4"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_baseline_star_border_24"
+                    app:tint="@color/accent_warm" />
+
+                <ImageView
+                    android:id="@+id/ivSearchStar5"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_baseline_star_border_24"
+                    app:tint="@color/accent_warm" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSearchRatingUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_marginStart="12dp"
+                android:gravity="center_vertical"
+                android:text="以上"
+                android:textColor="#2B2B2B"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/llSearchRating"
+                app:layout_constraintStart_toEndOf="@id/llSearchRating"
+                app:layout_constraintTop_toTopOf="@id/llSearchRating" />
+
+            <!-- ===== 行った / 行きたい（チップ風） ===== -->
+            <CheckBox
+                android:id="@+id/cbSearchVisited"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_chip"
+                android:buttonTint="#A58B76"
+                android:paddingStart="4dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawablePadding="4dp"
+                android:text="行った"
+                android:textColor="#2B2B2B"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llSearchRating" />
+
+            <CheckBox
+                android:id="@+id/cbSearchWant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_chip"
+                android:buttonTint="#A58B76"
+                android:paddingStart="4dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawablePadding="4dp"
+                android:text="行きたい"
+                android:textColor="#2B2B2B"
+                app:layout_constraintStart_toEndOf="@id/cbSearchVisited"
+                app:layout_constraintTop_toBottomOf="@+id/llSearchRating" />
+
+            <!--            <CheckBox-->
+            <!--                android:id="@+id/cbSearchFavorite"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="12dp"-->
+            <!--                android:background="@drawable/bg_chip"-->
+
+            <!--                android:button="@drawable/selector_heart_checkbox"-->
+            <!--                android:buttonTint="@null"-->
+
+            <!--                android:padding="5dp"-->
+            <!--                android:text="お気に入り"-->
+            <!--                android:textColor="#2B2B2B"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/cbSearchVisited" />-->
+
+            <LinearLayout
+                android:id="@+id/llSearchFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="4dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:drawablePadding="4dp"
+                android:focusable="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cbSearchVisited"
+                android:layout_marginTop="12dp">
+
+
+                <ImageView
+                    android:id="@+id/ivSearchFavorite"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/selector_heart_checkbox" />
+
+                <TextView
+                    android:id="@+id/ivSearchFavoriteTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="お気に入り"
+                    android:layout_marginStart="6dp"
+                    android:textColor="#2B2B2B"/>
+            </LinearLayout>
+
+            <!-- ===== ボタン ===== -->
+            <Button
+                android:id="@+id/btSearchSearch"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="検索"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toStartOf="@id/btSearchCancel"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llSearchFavorite" />
+
+            <Button
+                android:id="@+id/btSearchCancel"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_button_ghost"
+                android:text="キャンセル"
+                android:textColor="#F6D27A"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="@id/btSearchSearch"
+                app:layout_constraintTop_toBottomOf="@id/llSearchFavorite" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

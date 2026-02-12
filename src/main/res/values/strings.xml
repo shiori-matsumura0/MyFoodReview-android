@@ -1,0 +1,173 @@
+<resources>
+    <string name="app_name">MyFoodReview</string>
+    <string name="bt_add_photo">写真登録</string>
+    <string name="tv_add_shop_name">店名</string>
+    <string name="tv_add_prefecture">都道府県</string>
+    <string name="tv_add_area">エリア</string>
+    <string name="tv_add_genre">ジャンル</string>
+    <string name="tv_add_url">URL</string>
+    <string name="tv_add_rating">評価</string>
+    <string name="tv_add_visited_date">訪問日</string>
+    <string name="tv_add_memo">メモ</string>
+    <string name="tv_add_want_to_go">行きたい</string>
+    <string name="tv_add_is_favorite">お気に入り</string>
+
+    <string name="bt_Update_photo">写真登録</string>
+    <string name="tv_Update_shop_name">店名</string>
+    <string name="tv_Update_prefecture">都道府県</string>
+    <string name="tv_Update_area">エリア</string>
+    <string name="tv_Update_genre">ジャンル</string>
+    <string name="tv_Update_url">URL</string>
+    <string name="tv_Update_rating">評価</string>
+    <string name="tv_Update_visited_date">訪問日</string>
+    <string name="tv_Update_memo">メモ</string>
+    <string name="tv_Update_want_to_go">行きたい</string>
+    <string name="tv_Update_is_favorite">お気に入り</string>
+    <string-array name="prefecture_list">
+        <item>選択してください</item>
+        <item>北海道</item>
+        <item>青森県</item>
+        <item>岩手県</item>
+        <item>宮城県</item>
+        <item>秋田県</item>
+        <item>山形県</item>
+        <item>福島県</item>
+        <item>茨城県</item>
+        <item>栃木県</item>
+        <item>群馬県</item>
+        <item>埼玉県</item>
+        <item>千葉県</item>
+        <item>東京都</item>
+        <item>神奈川県</item>
+        <item>新潟県</item>
+        <item>富山県</item>
+        <item>石川県</item>
+        <item>福井県</item>
+        <item>山梨県</item>
+        <item>長野県</item>
+        <item>岐阜県</item>
+        <item>静岡県</item>
+        <item>愛知県</item>
+        <item>三重県</item>
+        <item>滋賀県</item>
+        <item>京都府</item>
+        <item>大阪府</item>
+        <item>兵庫県</item>
+        <item>奈良県</item>
+        <item>和歌山県</item>
+        <item>鳥取県</item>
+        <item>島根県</item>
+        <item>岡山県</item>
+        <item>広島県</item>
+        <item>山口県</item>
+        <item>徳島県</item>
+        <item>香川県</item>
+        <item>愛媛県</item>
+        <item>高知県</item>
+        <item>福岡県</item>
+        <item>佐賀県</item>
+        <item>長崎県</item>
+        <item>熊本県</item>
+        <item>大分県</item>
+        <item>宮崎県</item>
+        <item>鹿児島県</item>
+        <item>沖縄県</item>
+    </string-array>
+    <string-array name="genre_list">
+        <item>選択してください</item>
+        <item>和食</item>
+        <item>洋食</item>
+        <item>中華</item>
+        <item>ラーメン</item>
+        <item>韓国料理</item>
+        <item>アジア料理</item>
+        <item>イタリアン</item>
+        <item>フレンチ</item>
+        <item>ファストフード</item>
+        <item>カフェ・スイーツ</item>
+        <item>パン</item>
+        <item>その他</item>
+    </string-array>
+    <string-array name="rating_list">
+        <item>選択してください</item>
+        <item>★</item>
+        <item>★★</item>
+        <item>★★★</item>
+        <item>★★★★</item>
+        <item>★★★★★</item>
+    </string-array>
+
+    <string-array name="search_prefecture_list">
+        <item>未選択</item>
+        <item>北海道</item>
+        <item>青森県</item>
+        <item>岩手県</item>
+        <item>宮城県</item>
+        <item>秋田県</item>
+        <item>山形県</item>
+        <item>福島県</item>
+        <item>茨城県</item>
+        <item>栃木県</item>
+        <item>群馬県</item>
+        <item>埼玉県</item>
+        <item>千葉県</item>
+        <item>東京都</item>
+        <item>神奈川県</item>
+        <item>新潟県</item>
+        <item>富山県</item>
+        <item>石川県</item>
+        <item>福井県</item>
+        <item>山梨県</item>
+        <item>長野県</item>
+        <item>岐阜県</item>
+        <item>静岡県</item>
+        <item>愛知県</item>
+        <item>三重県</item>
+        <item>滋賀県</item>
+        <item>京都府</item>
+        <item>大阪府</item>
+        <item>兵庫県</item>
+        <item>奈良県</item>
+        <item>和歌山県</item>
+        <item>鳥取県</item>
+        <item>島根県</item>
+        <item>岡山県</item>
+        <item>広島県</item>
+        <item>山口県</item>
+        <item>徳島県</item>
+        <item>香川県</item>
+        <item>愛媛県</item>
+        <item>高知県</item>
+        <item>福岡県</item>
+        <item>佐賀県</item>
+        <item>長崎県</item>
+        <item>熊本県</item>
+        <item>大分県</item>
+        <item>宮崎県</item>
+        <item>鹿児島県</item>
+        <item>沖縄県</item>
+    </string-array>
+    <string-array name="search_genre_list">
+        <item>未選択</item>
+        <item>和食</item>
+        <item>洋食</item>
+        <item>中華</item>
+        <item>ラーメン</item>
+        <item>韓国料理</item>
+        <item>アジア料理</item>
+        <item>イタリアン</item>
+        <item>フレンチ</item>
+        <item>ファストフード</item>
+        <item>カフェ・スイーツ</item>
+        <item>パン</item>
+        <item>その他</item>
+    </string-array>
+    <string-array name="search_rating_list">
+        <item>未選択</item>
+        <item>★</item>
+        <item>★★</item>
+        <item>★★★</item>
+        <item>★★★★</item>
+        <item>★★★★★</item>
+    </string-array>
+</resources>
