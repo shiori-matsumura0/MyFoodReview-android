@@ -112,7 +112,7 @@ public class PhotoController {
         }
     }
 
-    // ＋ボタン
+    // ＋ボタンにリスナーをセット
     public void attachImageButton(ImageButton button) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,14 +163,5 @@ public class PhotoController {
         photoPathList.add(path);
         updatePhotoViews();
     }
-
-    public void swapPhoto(int index1, int index2) {
-        if (photoPathList.size() > index1 && photoPathList.size() > index2) {
-            String temp = photoPathList.get(index1);
-            photoPathList.set(index1, photoPathList.get(index2));
-            photoPathList.set(index2, temp);
-            updatePhotoViews();
-        }
-    }
-
 }
+
