@@ -20,7 +20,7 @@ public class PhotoController {
     private ArrayList<String> photoPathList;
     private Activity activity;
 
-    // コンストラクタ
+    // ===== コンストラクタ =====
     public PhotoController(Activity activity, ImageView mainImageView, ImageView[] subImageViews) {
         this.activity = activity;
         this.mainImageView = mainImageView;
@@ -32,10 +32,12 @@ public class PhotoController {
         setListeners();
     }
 
+    // ===== 写真パスリストの取得 =====
     public ArrayList<String> getPhotoPathList() {
         return photoPathList;
     }
 
+    // ===== クリック系のリスナー =====
     private void setListeners() {
         // サブ画像クリック
         for (int i = 0; i < subImageViews.length; i++) {
@@ -74,7 +76,7 @@ public class PhotoController {
         });
     }
 
-    //　最新の画像リストに合わせて、画像を更新
+    // ===== 最新の画像リストに合わせて、画像を更新 =====
     public void updatePhotoViews() {
         if (!photoPathList.isEmpty()) {
             mainImageView.setImageURI(Uri.fromFile(new File(photoPathList.get(0))));
@@ -93,7 +95,7 @@ public class PhotoController {
         }
     }
 
-    // 画像の入れ替え、長押しロック
+    // ===== 画像の入れ替え、長押しロック =====
     public void disableListeners() {
         if (mainImageView != null) {
             mainImageView.setOnLongClickListener(null);
@@ -104,7 +106,7 @@ public class PhotoController {
         }
     }
 
-    // 画像を削除して、画像リストを詰め直す
+    // ===== 画像を削除して、画像リストを詰め直す =====
     public void removePhoto(int index) {
         if (photoPathList.size() > index) {
             photoPathList.remove(index);
@@ -112,7 +114,7 @@ public class PhotoController {
         }
     }
 
-    // ＋ボタンにリスナーをセット
+    // ===== ＋ボタンにリスナーをセット =====
     public void attachImageButton(ImageButton button) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +124,7 @@ public class PhotoController {
         });
     }
     
-    // 画像追加の選択肢をポップアップで表示
+    // ===== 画像追加の選択肢をポップアップで表示 ===== 
     private void showImageChoicePopup(View anchor) {
         PopupMenu popup = new PopupMenu(activity, anchor);
         popup.getMenu().add("写真を撮る");
@@ -143,13 +145,13 @@ public class PhotoController {
         popup.show();
     }
 
-    // 画像選択から戻って、画像をセットする
+    // ===== 画像選択から戻って、画像をセットする ===== 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         imageManager.onActivityResult(requestCode, resultCode, data);
         updatePhotoViews();
     }
 
-    // 保存されていた写真パスをリストに読み込み、画面上の画像枠（View）を初期状態に復元する処理
+    // ===== 保存されていた写真パスをリストに読み込み、画面上の画像枠（View）を初期状態に復元する処理 ===== 
     public void loadPhotoFromPath(String path) {
         photoPathList.clear();
         if (path == null || path.isEmpty()) {
@@ -164,4 +166,5 @@ public class PhotoController {
         updatePhotoViews();
     }
 }
+
 
