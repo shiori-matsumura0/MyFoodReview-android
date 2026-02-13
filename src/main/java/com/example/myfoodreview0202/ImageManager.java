@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.core.content.FileProvider;
 
+import com.bumptech.glide.Glide;
+
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -154,4 +156,5 @@ public class ImageManager {
         }
     }
 }
+
 
